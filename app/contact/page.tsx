@@ -1,4 +1,44 @@
+'use client'
+
+import { useState } from 'react'
+import { supabase } from '@/lib/supabase/client'
+
 export default function ContactPage() {
+  const [nom, setNom] = useState('')
+  const [mail, setMail] = useState('')
+  const [typeDeProjet, setTypeDeProjet] = useState('')
+  const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [feedback, setFeedback] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setLoading(true)
+    setFeedback('')
+
+    const { error } = await supabase.from('contact_requests').insert([
+      {
+        nom,
+        mail,
+        type_de_projet: typeDeProjet,
+        message,
+      },
+    ])
+
+    if (error) {
+      setFeedback("Une erreur est survenue. Réessaie dans un instant.")
+      setLoading(false)
+      return
+    }
+
+    setFeedback('Message envoyé avec succès.')
+    setNom('')
+    setMail('')
+    setTypeDeProjet('')
+    setMessage('')
+    setLoading(false)
+  }
+
   return (
     <main className="contact-page">
       <a href="/" className="return-home-pill">
@@ -28,20 +68,41 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <label>
               <span>Nom</span>
-              <input type="text" name="name" placeholder="Votre nom" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Votre nom"
+                value={nom}
+                onChange={(e) => setNom(e.target.value)}
+                required
+              />
             </label>
 
             <label>
               <span>Email</span>
-              <input type="email" name="email" placeholder="vous@email.com" />
+              <input
+                type="email"
+                name="email"
+                placeholder="vous@email.com"
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
+                required
+              />
             </label>
 
             <label>
               <span>Type de projet</span>
-              <input type="text" name="project" placeholder="Marque, site, repositionnement..." />
+              <input
+                type="text"
+                name="project"
+                placeholder="Marque, site, repositionnement..."
+                value={typeDeProjet}
+                onChange={(e) => setTypeDeProjet(e.target.value)}
+                required
+              />
             </label>
 
             <label>
@@ -50,15 +111,20 @@ export default function ContactPage() {
                 name="message"
                 rows={6}
                 placeholder="Décris le projet, le contexte et ce qui doit remonter."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
               />
             </label>
 
-            <button type="submit" className="button-primary">
-              Envoyer
+            <button type="submit" className="button-primary" disabled={loading}>
+              {loading ? 'Envoi...' : 'Envoyer'}
             </button>
+
+            {feedback && <p className="form-feedback">{feedback}</p>}
           </form>
         </div>
       </section>
     </main>
-  );
+  )
 }
