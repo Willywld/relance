@@ -55,6 +55,7 @@ export default function Home() {
   <a href="/offre">Offre</a>
   <a href="/projets">Projets</a>
   <a href="/a-propos">À propos</a>
+  <a href="/acces">RELANCE +</a>
 </nav>
 
           <a href="/contact" className="header-cta">
