@@ -52,7 +52,9 @@ export default async function RelancePlusPlusPage({
 
   return (
     <main style={{ padding: 40 }}>
-      <nav style={{ display: "flex", gap: 12, marginBottom: 24 }}>
+      <nav style={{ display: "flex", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
+        <Link href="/">Relance / Menu</Link>
+        <Link href="/my-access">My Access</Link>
         <Link href={`/acces?email=${encodeURIComponent(email)}`}>RELANCE +</Link>
         <span style={{ opacity: 0.5 }}>RELANCE ++</span>
         {data.offer === "complete" && (
