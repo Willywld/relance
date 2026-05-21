@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+
+if (!stripeSecretKey) {
+  throw new Error("Missing STRIPE_SECRET_KEY environment variable");
+}
+
+const stripe = new Stripe(stripeSecretKey, {
   apiVersion: "2026-04-22.dahlia",
 });
 
@@ -26,6 +32,10 @@ export async function POST(req: Request) {
     }
 
     const origin = req.headers.get("origin") || process.env.NEXT_PUBLIC_URL;
+
+    if (!origin) {
+      return NextResponse.json({ error: "Origin manquant." }, { status: 500 });
+    }
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
