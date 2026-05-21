@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
- apiVersion: "2026-04-22.dahlia",
+  apiVersion: "2026-04-22.dahlia",
 });
 
 const PRICE_IDS = {
@@ -15,40 +15,24 @@ export async function POST(req: Request) {
   try {
     const { offer } = await req.json();
 
-    if (
-      !offer ||
-      !["diagnostic", "repositionnement", "complete"].includes(offer)
-    ) {
-      return NextResponse.json(
-        { error: "Offre invalide." },
-        { status: 400 }
-      );
+    if (!offer || !["diagnostic", "repositionnement", "complete"].includes(offer)) {
+      return NextResponse.json({ error: "Offre invalide." }, { status: 400 });
     }
 
     const priceId = PRICE_IDS[offer as keyof typeof PRICE_IDS];
 
     if (!priceId) {
-      return NextResponse.json(
-        { error: "Price ID Stripe manquant." },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: "Price ID Stripe manquant." }, { status: 500 });
     }
 
     const origin = req.headers.get("origin") || process.env.NEXT_PUBLIC_URL;
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
+      line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/offre`,
-      metadata: {
-        offer,
-      },
+      metadata: { offer },
     });
 
     return NextResponse.json({ url: session.url });
