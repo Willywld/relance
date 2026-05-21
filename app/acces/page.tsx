@@ -8,6 +8,8 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY as string
 );
 
+const ALLOWED_OFFERS = ["diagnostic", "repositionnement", "complete"];
+
 export default async function AccessPage({
   searchParams,
 }: {
@@ -15,10 +17,7 @@ export default async function AccessPage({
 }) {
   const { session_id } = await searchParams;
 
-  console.log("ACCESS PAGE session_id =", session_id);
-
   if (!session_id) {
-    console.log("No session_id, redirect /offre");
     redirect("/offre");
   }
 
@@ -32,14 +31,9 @@ export default async function AccessPage({
     }
   ).then((res) => res.json());
 
-  console.log("Stripe session response =", sessionResponse);
-
   const email = sessionResponse?.customer_details?.email;
 
-  console.log("Email found =", email);
-
   if (!email) {
-    console.log("No email, redirect /offre");
     redirect("/offre");
   }
 
@@ -48,20 +42,17 @@ export default async function AccessPage({
     .select("*")
     .eq("email", email)
     .eq("access_granted", true)
+    .in("offer", ALLOWED_OFFERS)
     .maybeSingle();
 
-  console.log("Supabase data =", data);
-  console.log("Supabase error =", error);
-
   if (error || !data) {
-    console.log("No paid access, redirect /offre");
     redirect("/offre");
   }
 
   return (
     <main style={{ padding: 40 }}>
       <h1>RELANCE +</h1>
-      <p>Bienvenue, ton accès est bien actif.</p>
+      <p>Bienvenue, tu as accès à l’offre Diagnostic.</p>
     </main>
   );
 }
