@@ -140,8 +140,8 @@ export default function ServicesPage() {
             </h2>
           </div>
 
-          <a href="/contact" className="button-primary">
-            Demander une relance
+          <a href="/pour-qui" className="button-primary">
+            Est-ce pour toi
           </a>
         </div>
       </section>

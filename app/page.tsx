@@ -70,8 +70,8 @@ export default function Home() {
   </div>
 </nav>
 
-          <a href="/contact" className="header-cta">
-            Nous contacter
+          <a href="/pour-qui" className="header-cta">
+            Est-ce pour toi ?
           </a>
         </div>
       </header>
@@ -117,8 +117,8 @@ export default function Home() {
               </p>
 
               <div className="hero-actions">
-                <a href="/contact" className="button-primary">
-                  Présenter un projet
+                <a href="/pour-qui" className="button-primary">
+                  Est-ce pour toi
                 </a>
                 <a href="/services" className="button-secondary">
                   Voir les services
@@ -274,8 +274,8 @@ export default function Home() {
               </p>
             </div>
 
-            <a href="/contact" className="button-primary final-cta">
-              Lancer la relance
+            <a href="/pour-qui" className="button-primary final-cta">
+              Est-ce pour toi
             </a>
           </div>
         </section>

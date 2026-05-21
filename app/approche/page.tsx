@@ -137,8 +137,8 @@ export default function ApprochePage() {
             </h2>
           </div>
 
-          <a href="/contact" className="button-primary">
-            Ouvrir une relance
+          <a href="/pour-qui" className="button-primary">
+            Est-ce pour toi
           </a>
         </div>
       </section>

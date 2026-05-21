@@ -268,8 +268,8 @@ export default function OfferPage() {
             </div>
 
             <div className="offer-actions">
-              <Link href="/contact" className="button-primary">
-                Demander une relance
+              <Link href="/pour-qui" className="button-primary">
+                Est-ce pour toi
               </Link>
               <Link href="/services" className="button-secondary">
                 Revoir les services

@@ -94,8 +94,8 @@ export default function AProposPage() {
             </h2>
           </div>
 
-          <a href="/contact" className="button-primary">
-            Entrer en contact
+          <a href="/pour-qui" className="button-primary">
+            Est-ce pour toi
           </a>
         </div>
       </section>

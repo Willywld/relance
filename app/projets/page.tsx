@@ -113,8 +113,8 @@ export default function ProjetsPage() {
             </h2>
           </div>
 
-          <a href="/contact" className="button-primary">
-            Présenter un projet
+          <a href="/pour-qui" className="button-primary">
+            Est-ce pour toi
           </a>
         </div>
       </section>
