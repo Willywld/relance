@@ -6013,7 +6013,6 @@ canvas {
 }
 
 @media (max-width: 640px) {
-  .offer-page .page-shell,
   .pour-qui-page .page-shell,
   .my-access-page .page-shell {
     padding: 0 18px;
@@ -6057,26 +6056,11 @@ canvas {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .offer-page .offer-card,
   .pour-qui-page .pq-card,
   .pour-qui-page .pq-step,
   .pour-qui-page .pq-offer-card,
-  .offer-page .button-primary,
-  .offer-page .button-secondary,
   .my-access-page .my-access-button {
     transition: none !important;
     transform: none !important;
   }
-}
-/* Offre → annule le fond noir custom */
-.offer-page {
-  background: none !important;
-  background-color: transparent !important;
-  color: inherit;
-}
-
-.offer-page .offer-bg,
-.offer-page .offer-ray,
-.offer-page .offer-glow {
-  display: none !important;
 }
