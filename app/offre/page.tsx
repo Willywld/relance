@@ -239,31 +239,6 @@ export default function OfferPage() {
       </section>
 
       <section className="offer-ending" id="contact">
-        <div className="page-shell">
-          <div className="offer-ending-shell">
-            <div>
-              <div className="offer-ending-label">Entrer dans Relance</div>
-              <h2 className="offer-ending-title">
-                Choisir le bon niveau d’intervention.
-              </h2>
-              <p className="offer-ending-text">
-                Le bon format ne sert pas à impressionner. Il sert à intervenir
-                juste, au bon moment, avec le bon degré d’intensité.
-              </p>
-            </div>
-
-            <div className="offer-actions">
-              <a className="button-primary" href="mailto:contact@relance.studio">
-                Demander une relance
-              </a>
-              <a className="button-secondary" href="/services">
-                Revoir les services
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="offer-ending" id="contact">
   <div className="page-shell">
     <div className="offer-ending-shell">
       <div>
