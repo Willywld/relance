@@ -75,33 +75,36 @@ export default function OfferPage() {
     "Restitution synthétique, exploitable, pensée pour relancer vite.",
   ];
 
- async function startCheckout(offer: string) {
-  setLoadingOffer(offer);
+  async function startCheckout(offer: string) {
+    try {
+      setLoadingOffer(offer);
 
-  const res = await fetch("/api/checkout", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ offer }),
-  });
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ offer }),
+      });
 
-  const data = await res.json();
+      const data = await res.json();
 
-  if (!res.ok) {
-    alert(data?.error || "Erreur checkout");
-    setLoadingOffer(null);
-    return;
+      if (!res.ok) {
+        throw new Error(data?.error || "Checkout impossible.");
+      }
+
+      if (data?.url) {
+        window.location.href = data.url;
+        return;
+      }
+
+      throw new Error("URL Stripe manquante.");
+    } catch (error) {
+      console.error(error);
+      alert("Impossible d'ouvrir le paiement. Réessaie.");
+      setLoadingOffer(null);
+    }
   }
-
-  if (!data?.url) {
-    alert("URL Stripe manquante");
-    setLoadingOffer(null);
-    return;
-  }
-
-  window.location.href = data.url;
-}
 
   return (
     <main className="offer-page" id="top">
