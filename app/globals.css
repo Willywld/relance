@@ -5581,7 +5581,6 @@ canvas {
   --relance-radius-sm: 18px;
 }
 
-.offer-page,
 .pour-qui-page,
 .my-access-page {
   min-height: 100vh;
@@ -5592,7 +5591,6 @@ canvas {
   color: var(--relance-text);
 }
 
-.offer-page .page-shell,
 .pour-qui-page .page-shell,
 .my-access-page .page-shell {
   max-width: 1280px;
@@ -5600,7 +5598,6 @@ canvas {
   padding: 0 24px;
 }
 
-.offer-page .section-label,
 .pour-qui-page .section-label,
 .my-access-page .section-label {
   display: inline-block;
@@ -5611,8 +5608,6 @@ canvas {
   margin-bottom: 18px;
 }
 
-.offer-page .button-primary,
-.offer-page .button-secondary,
 .pour-qui-page .button-primary,
 .pour-qui-page .button-secondary,
 .my-access-page .button-primary,
@@ -5634,8 +5629,6 @@ canvas {
     opacity 0.25s ease;
 }
 
-.offer-page .button-primary:hover,
-.offer-page .button-secondary:hover,
 .pour-qui-page .button-primary:hover,
 .pour-qui-page .button-secondary:hover,
 .my-access-page .button-primary:hover,
@@ -5644,7 +5637,6 @@ canvas {
   transform: translateY(-2px);
 }
 
-.offer-page .button-primary,
 .pour-qui-page .button-primary,
 .my-access-page .button-primary,
 .my-access-page .my-access-button {
@@ -5653,7 +5645,6 @@ canvas {
   border: none;
 }
 
-.offer-page .button-secondary,
 .pour-qui-page .button-secondary,
 .my-access-page .button-secondary {
   background: transparent;
@@ -5661,7 +5652,6 @@ canvas {
   border: 1px solid var(--relance-border-strong);
 }
 
-.offer-page .offer-card,
 .pour-qui-page .pq-card,
 .pour-qui-page .pq-step,
 .pour-qui-page .pq-offer-card,
@@ -5672,7 +5662,6 @@ canvas {
   box-shadow: var(--relance-shadow);
 }
 
-.offer-page .offer-card,
 .pour-qui-page .pq-card,
 .pour-qui-page .pq-step,
 .pour-qui-page .pq-offer-card {
@@ -5682,7 +5671,6 @@ canvas {
     background 0.45s ease;
 }
 
-.offer-page .offer-card:hover,
 .pour-qui-page .pq-card:hover,
 .pour-qui-page .pq-step:hover,
 .pour-qui-page .pq-offer-card:hover {
@@ -5691,10 +5679,6 @@ canvas {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.offer-page .offer-title,
-.offer-page .offer-divider-title,
-.offer-page .offer-process-title,
-.offer-page .offer-ending-title,
 .pour-qui-page .pq-hero h1,
 .pour-qui-page .pq-content h2,
 .pour-qui-page .pq-section-head h2,
@@ -5708,10 +5692,6 @@ canvas {
   line-height: 0.95;
 }
 
-.offer-page .offer-text,
-.offer-page .offer-effects-copy p,
-.offer-page .offer-process-copy p,
-.offer-page .offer-ending-text,
 .pour-qui-page .pq-lead,
 .pour-qui-page .pq-card p,
 .pour-qui-page .pq-step p,
@@ -6099,46 +6079,4 @@ canvas {
 .offer-page .offer-ray,
 .offer-page .offer-glow {
   display: none !important;
-}
-/* Version plus safe si besoin */
-.offer-page {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: inherit !important;
-}
-
-.offer-page .offer-bg,
-.offer-page .offer-ray,
-.offer-page .offer-glow {
-  display: none !important;
-}
-
-.offer-page .offer-title,
-.offer-page .offer-divider-title,
-.offer-page .offer-process-title,
-.offer-page .offer-ending-title,
-.offer-page .offer-text,
-.offer-page .offer-effects-copy p,
-.offer-page .offer-process-copy p,
-.offer-page .offer-ending-text,
-.offer-page .offer-card,
-.offer-page .offer-card h2,
-.offer-page .offer-card p,
-.offer-page .offer-card li,
-.offer-page .offer-price,
-.offer-page .offer-meta,
-.offer-page .offer-step,
-.offer-page .offer-step-text,
-.offer-page .offer-line,
-.offer-page .offer-line-text,
-.offer-page .offer-line-id,
-.offer-page .offer-effect-box,
-.offer-page .offer-ending-shell,
-.offer-page .offer-orbit,
-.offer-page .offer-orbit-core,
-.offer-page .offer-orbit-tag {
-  color: inherit !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
 }
