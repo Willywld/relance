@@ -52,16 +52,10 @@ export default function SuccessPage({ searchParams }: SuccessPageProps) {
             </ul>
 
             <div className="success-actions">
-              <Link href="/acces" className="button-primary">
-                Accéder au service
-              </Link>
-              <Link href="/offre" className="button-secondary">
-                Retour aux offres
-              </Link>
-              <Link href="/" className="button-secondary">
-                Retour au menu
-              </Link>
-            </div>
+  <Link href="/acces" className="button-primary">
+    Accéder au service
+  </Link>
+</div>
           </aside>
         </div>
       </section>

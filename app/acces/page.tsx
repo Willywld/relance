@@ -47,17 +47,11 @@ export default function AccessPage() {
               poursuivre depuis cet espace.
             </div>
 
-            <div className="access-actions">
-              <Link href="/offre" className="button-secondary">
-                Retour aux offres
-              </Link>
-              <Link href="/services" className="button-secondary">
-                Voir les services
-              </Link>
-              <Link href="/" className="button-primary">
-                Retour au menu
-              </Link>
-            </div>
+           <div className="access-actions">
+  <Link href="/" className="button-primary">
+    Retour au menu
+  </Link>
+</div>
           </aside>
         </div>
       </section>
