@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
@@ -17,8 +18,12 @@ export default async function RelancePlusPage({
   searchParams: Promise<{ session_id?: string; email?: string }>;
 }) {
   const { session_id, email: rawEmail } = await searchParams;
+  const cookieStore = await cookies();
 
-  let email = rawEmail?.trim().toLowerCase() || "";
+  let email =
+    rawEmail?.trim().toLowerCase() ||
+    cookieStore.get("relance_access_email")?.value?.trim().toLowerCase() ||
+    "";
 
   if (!email && session_id) {
     const sessionResponse = await fetch(
@@ -55,10 +60,8 @@ export default async function RelancePlusPage({
       <nav style={{ display: "flex", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
         <Link href="/">Relance / Menu</Link>
         <Link href="/my-access">My Access</Link>
-        <Link href={`/acces?email=${encodeURIComponent(email)}`}>RELANCE +</Link>
-        <Link href={`/relance-plus-plus?email=${encodeURIComponent(email)}`}>
-          RELANCE ++
-        </Link>
+        <Link href="/acces">RELANCE +</Link>
+        <Link href="/relance-plus-plus">RELANCE ++</Link>
         <span style={{ opacity: 0.5 }}>RELANCE PLUS</span>
       </nav>
 

@@ -27,17 +27,25 @@ export async function POST(req: Request) {
     return NextResponse.redirect(new URL("/offre", req.url));
   }
 
+  let destination = "/offre";
+
   if (data.offer === "complete") {
-    return NextResponse.redirect(new URL(`/relance-plus?email=${encodeURIComponent(email)}`, req.url));
+    destination = "/relance-plus";
+  } else if (data.offer === "repositionnement") {
+    destination = "/relance-plus-plus";
+  } else if (data.offer === "diagnostic") {
+    destination = "/acces";
   }
 
-  if (data.offer === "repositionnement") {
-    return NextResponse.redirect(new URL(`/relance-plus-plus?email=${encodeURIComponent(email)}`, req.url));
-  }
+  const response = NextResponse.redirect(new URL(destination, req.url));
 
-  if (data.offer === "diagnostic") {
-    return NextResponse.redirect(new URL(`/acces?email=${encodeURIComponent(email)}`, req.url));
-  }
+  response.cookies.set("relance_access_email", email, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 30,
+  });
 
-  return NextResponse.redirect(new URL("/offre", req.url));
+  return response;
 }
