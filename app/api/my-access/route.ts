@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   const email = typeof rawEmail === "string" ? rawEmail.trim().toLowerCase() : "";
 
   if (!email) {
-    return NextResponse.redirect(new URL("/offre", req.url));
+    return NextResponse.redirect(new URL("/my-access?error=impossible", req.url));
   }
 
   const { data, error } = await supabase
@@ -24,10 +24,10 @@ export async function POST(req: Request) {
     .maybeSingle();
 
   if (error || !data) {
-    return NextResponse.redirect(new URL("/offre", req.url));
+    return NextResponse.redirect(new URL("/my-access?error=impossible", req.url));
   }
 
-  let destination = "/offre";
+  let destination = "/my-access?error=impossible";
 
   if (data.offer === "complete") {
     destination = "/relance-plus";

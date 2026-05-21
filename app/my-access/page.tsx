@@ -1,8 +1,35 @@
-export default function MyAccessPage() {
+export const dynamic = "force-dynamic";
+
+export default async function MyAccessPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const { error } = await searchParams;
+  const hasError = error === "impossible";
+
   return (
     <main style={{ padding: 40, maxWidth: 520, margin: "0 auto" }}>
       <h1>My Access</h1>
       <p>Entre l’email utilisé lors de ton achat pour retrouver ton accès.</p>
+
+      {hasError && (
+        <div
+          style={{
+            marginTop: 20,
+            marginBottom: 8,
+            padding: "14px 16px",
+            borderRadius: 12,
+            background: "rgba(255, 80, 80, 0.08)",
+            border: "1px solid rgba(255, 80, 80, 0.18)",
+            color: "#b42318",
+            fontSize: 15,
+            lineHeight: 1.6,
+          }}
+        >
+          Impossible de retrouver un accès avec cette adresse email.
+        </div>
+      )}
 
       <form
         action="/api/my-access"
