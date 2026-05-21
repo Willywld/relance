@@ -6088,3 +6088,15 @@ canvas {
     transform: none !important;
   }
 }
+/* Offre → annule le fond noir custom */
+.offer-page {
+  background: none !important;
+  background-color: transparent !important;
+  color: inherit;
+}
+
+.offer-page .offer-bg,
+.offer-page .offer-ray,
+.offer-page .offer-glow {
+  display: none !important;
+}
