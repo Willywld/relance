@@ -4751,3 +4751,8 @@ canvas {
 .services3-offer-button {
   min-width: 220px;
 }
+.offer-card .button-primary,
+.offer-card .button-secondary {
+  margin-top: 24px;
+  width: fit-content;
+}

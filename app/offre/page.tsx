@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
 export default function OfferPage() {
+  const [loadingOffer, setLoadingOffer] = useState<string | null>(null);
+
   const offers = [
     {
       id: "01",
@@ -69,6 +74,37 @@ export default function OfferPage() {
     "Réécriture du signal, de la direction ou de la perception.",
     "Restitution synthétique, exploitable, pensée pour relancer vite.",
   ];
+
+  async function startCheckout(offer: string) {
+    try {
+      setLoadingOffer(offer);
+
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ offer }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data?.error || "Checkout impossible.");
+      }
+
+      if (data?.url) {
+        window.location.href = data.url;
+        return;
+      }
+
+      throw new Error("URL Stripe manquante.");
+    } catch (error) {
+      console.error(error);
+      alert("Impossible d'ouvrir le paiement. Réessaie.");
+      setLoadingOffer(null);
+    }
+  }
 
   return (
     <main className="offer-page" id="top">
@@ -158,9 +194,14 @@ export default function OfferPage() {
                   </ul>
                 </div>
 
-                <Link href={`/checkout?offer=${offer.slug}`} className={offer.featured ? "button-primary" : "button-secondary"}>
-                  {offer.cta}
-                </Link>
+                <button
+                  type="button"
+                  className={offer.featured ? "button-primary" : "button-secondary"}
+                  onClick={() => startCheckout(offer.slug)}
+                  disabled={loadingOffer === offer.slug}
+                >
+                  {loadingOffer === offer.slug ? "Ouverture..." : offer.cta}
+                </button>
               </article>
             ))}
           </div>
