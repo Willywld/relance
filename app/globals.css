@@ -6100,3 +6100,45 @@ canvas {
 .offer-page .offer-glow {
   display: none !important;
 }
+/* Version plus safe si besoin */
+.offer-page {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+.offer-page .offer-bg,
+.offer-page .offer-ray,
+.offer-page .offer-glow {
+  display: none !important;
+}
+
+.offer-page .offer-title,
+.offer-page .offer-divider-title,
+.offer-page .offer-process-title,
+.offer-page .offer-ending-title,
+.offer-page .offer-text,
+.offer-page .offer-effects-copy p,
+.offer-page .offer-process-copy p,
+.offer-page .offer-ending-text,
+.offer-page .offer-card,
+.offer-page .offer-card h2,
+.offer-page .offer-card p,
+.offer-page .offer-card li,
+.offer-page .offer-price,
+.offer-page .offer-meta,
+.offer-page .offer-step,
+.offer-page .offer-step-text,
+.offer-page .offer-line,
+.offer-page .offer-line-text,
+.offer-page .offer-line-id,
+.offer-page .offer-effect-box,
+.offer-page .offer-ending-shell,
+.offer-page .offer-orbit,
+.offer-page .offer-orbit-core,
+.offer-page .offer-orbit-tag {
+  color: inherit !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
