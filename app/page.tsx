@@ -49,13 +49,24 @@ export default function Home() {
             Relance
           </a>
 
-          <nav className="nav">
+       <nav className="nav">
   <a href="/approche">Approche</a>
   <a href="/services">Services</a>
   <a href="/offre">Offre</a>
   <a href="/projets">Projets</a>
   <a href="/a-propos">À propos</a>
-  <a href="/acces">RELANCE +</a>
+
+  <div className="nav-dropdown">
+    <a href="/acces" className="nav-parent">
+      RELANCE +
+    </a>
+
+    <div className="nav-dropdown-menu">
+      <a href="/acces">RELANCE +</a>
+      <a href="/relance-plus-plus">RELANCE ++</a>
+      <a href="/relance-plus">RELANCE PLUS</a>
+    </div>
+  </div>
 </nav>
 
           <a href="/contact" className="header-cta">

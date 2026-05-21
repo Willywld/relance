@@ -36,14 +36,17 @@ export async function POST(req: Request) {
       case "checkout.session.completed": {
         const session = event.data.object as Stripe.Checkout.Session;
         const email = session.customer_details?.email;
+        const offer = session.metadata?.offer ?? null;
 
         console.log("Payment confirmed");
         console.log("Session:", session.id);
         console.log("Email:", email);
+        console.log("Offer:", offer);
 
         if (email) {
           const { error } = await supabase.from("paid_access").upsert({
             email,
+            offer,
             stripe_customer_id:
               typeof session.customer === "string" ? session.customer : null,
             stripe_session_id: session.id,
