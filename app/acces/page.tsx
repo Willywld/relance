@@ -15,23 +15,32 @@ export default async function AccessPage({
 }) {
   const { session_id } = await searchParams;
 
+  console.log("ACCESS PAGE session_id =", session_id);
+
   if (!session_id) {
-    redirect("/");
+    console.log("No session_id, redirect /offre");
+    redirect("/offre");
   }
 
-  const { data: sessionResponse } = await fetch(
+  const sessionResponse = await fetch(
     `https://api.stripe.com/v1/checkout/sessions/${session_id}`,
     {
       headers: {
         Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
       },
+      cache: "no-store",
     }
   ).then((res) => res.json());
 
+  console.log("Stripe session response =", sessionResponse);
+
   const email = sessionResponse?.customer_details?.email;
 
+  console.log("Email found =", email);
+
   if (!email) {
-    redirect("/");
+    console.log("No email, redirect /offre");
+    redirect("/offre");
   }
 
   const { data, error } = await supabase
@@ -41,14 +50,18 @@ export default async function AccessPage({
     .eq("access_granted", true)
     .maybeSingle();
 
+  console.log("Supabase data =", data);
+  console.log("Supabase error =", error);
+
   if (error || !data) {
-    redirect("/");
+    console.log("No paid access, redirect /offre");
+    redirect("/offre");
   }
 
   return (
     <main style={{ padding: 40 }}>
-      <h1>Accès autorisé</h1>
-      <p>Ton paiement a bien été validé.</p>
+      <h1>RELANCE +</h1>
+      <p>Bienvenue, ton accès est bien actif.</p>
     </main>
   );
 }

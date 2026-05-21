@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     if (!origin) {
       return NextResponse.json({ error: "Origin manquant." }, { status: 500 });
     }
-
+console.log("SUCCESS URL =", `${origin}/acces?session_id={CHECKOUT_SESSION_ID}`);
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: [{ price: priceId, quantity: 1 }],
