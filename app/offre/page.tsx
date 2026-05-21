@@ -252,10 +252,10 @@ export default function OfferPage() {
         </p>
       </div>
 
-      <div className="offer-actions">
-        <a className="button-primary" href="mailto:contact@relance.studio">
-          Demander une relance
-        </a>
+     <div className="offer-actions">
+  <Link className="button-primary" href="/contact">
+    Demander une relance
+  </Link>
         <a className="button-secondary" href="/services">
           Revoir les services
         </a>
