@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
@@ -13,25 +14,25 @@ const ALLOWED_OFFERS = ["diagnostic", "repositionnement", "complete"];
 export default async function AccessPage({
   searchParams,
 }: {
-  searchParams: Promise<{ session_id?: string }>;
+  searchParams: Promise<{ session_id?: string; email?: string }>;
 }) {
-  const { session_id } = await searchParams;
+  const { session_id, email: rawEmail } = await searchParams;
 
-  if (!session_id) {
-    redirect("/offre");
+  let email = rawEmail?.trim().toLowerCase() || "";
+
+  if (!email && session_id) {
+    const sessionResponse = await fetch(
+      `https://api.stripe.com/v1/checkout/sessions/${session_id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
+        },
+        cache: "no-store",
+      }
+    ).then((res) => res.json());
+
+    email = sessionResponse?.customer_details?.email?.trim().toLowerCase() || "";
   }
-
-  const sessionResponse = await fetch(
-    `https://api.stripe.com/v1/checkout/sessions/${session_id}`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
-      },
-      cache: "no-store",
-    }
-  ).then((res) => res.json());
-
-  const email = sessionResponse?.customer_details?.email;
 
   if (!email) {
     redirect("/offre");
@@ -51,6 +52,20 @@ export default async function AccessPage({
 
   return (
     <main style={{ padding: 40 }}>
+      <nav style={{ display: "flex", gap: 12, marginBottom: 24 }}>
+        <span style={{ opacity: 0.5 }}>RELANCE +</span>
+        {["repositionnement", "complete"].includes(data.offer) && (
+          <Link href={`/relance-plus-plus?email=${encodeURIComponent(email)}`}>
+            RELANCE ++
+          </Link>
+        )}
+        {data.offer === "complete" && (
+          <Link href={`/relance-plus?email=${encodeURIComponent(email)}`}>
+            RELANCE PLUS
+          </Link>
+        )}
+      </nav>
+
       <h1>RELANCE +</h1>
       <p>Bienvenue, tu as accès à l’offre Diagnostic.</p>
     </main>
