@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ServicesPage() {
   const services = [
     {
@@ -85,6 +87,12 @@ export default function ServicesPage() {
                 <p>{service.text}</p>
               </article>
             ))}
+          </div>
+
+          <div className="services3-offer-cta">
+            <Link href="/offre" className="button-primary services3-offer-button">
+              Voir l’offre
+            </Link>
           </div>
         </div>
       </section>
