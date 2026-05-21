@@ -50,11 +50,12 @@ export default function Home() {
           </a>
 
           <nav className="nav">
-            <a href="/approche">Approche</a>
-            <a href="/services">Services</a>
-            <a href="/projets">Projets</a>
-            <a href="/a-propos">À propos</a>
-          </nav>
+  <a href="/approche">Approche</a>
+  <a href="/services">Services</a>
+  <a href="/offre">Offre</a>
+  <a href="/projets">Projets</a>
+  <a href="/a-propos">À propos</a>
+</nav>
 
           <a href="/contact" className="header-cta">
             Nous contacter
