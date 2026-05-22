@@ -1,6 +1,23 @@
+import Link from "next/link";
+
 export const dynamic = "force-dynamic";
 
 type SearchParams = Promise<{ error?: string }>;
+
+const offers = [
+  {
+    name: "RELANCE +",
+    price: "95€",
+  },
+  {
+    name: "RELANCE ++",
+    price: "190€",
+  },
+  {
+    name: "RELANCE PLUS",
+    price: "290€",
+  },
+];
 
 export default async function MyAccessPage({
   searchParams,
@@ -19,59 +36,88 @@ export default async function MyAccessPage({
       </div>
 
       <section className="my-access-shell">
-        <div className="my-access-panel">
-          <div className="my-access-copy">
-            <p className="my-access-kicker">Accès privé</p>
-            <h1 className="my-access-title">
-              Retrouve ton accès
-              <br />
-              dans un espace à part.
-            </h1>
-            <p className="my-access-intro">
-              Entre l’adresse email utilisée lors de ton achat pour retrouver
-              ton offre, reprendre le fil et accéder à ton espace personnel.
-            </p>
-          </div>
-
-          {hasError && (
-            <div
-              className="my-access-alert"
-              role="alert"
-              aria-live="polite"
-            >
-              Impossible de retrouver un accès avec cette adresse email.
-              Vérifie l’adresse exacte utilisée au moment de l’achat.
-            </div>
-          )}
-
-          <form action="/api/my-access" method="POST" className="my-access-form">
-            <div className="my-access-field">
-              <label htmlFor="email" className="my-access-label">
-                Adresse email
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="ton@email.com"
-                autoComplete="email"
-                required
-                aria-invalid={hasError}
-                aria-describedby={hasError ? "my-access-error" : undefined}
-                className="my-access-input"
-              />
+        <div className="my-access-layout">
+          <div className="my-access-panel">
+            <div className="my-access-copy">
+              <p className="my-access-kicker">Accès privé</p>
+              <h1 className="my-access-title">
+                Retrouve ton accès
+                <br />
+                dans un espace à part.
+              </h1>
+              <p className="my-access-intro">
+                Entre l’adresse email utilisée lors de ton achat pour retrouver
+                ton offre, reprendre le fil et accéder à ton espace personnel.
+              </p>
             </div>
 
             {hasError && (
-              <p id="my-access-error" className="my-access-error-text">
-                Utilise l’email exact avec lequel tu as acheté ton offre.
-              </p>
+              <div
+                className="my-access-alert"
+                role="alert"
+                aria-live="polite"
+              >
+                Impossible de retrouver un accès avec cette adresse email.
+                Vérifie l’adresse exacte utilisée au moment de l’achat.
+              </div>
             )}
 
-            <button type="submit" className="my-access-button">
-              Accéder à mon offre
-            </button>
-          </form>
+            <form action="/api/my-access" method="POST" className="my-access-form">
+              <div className="my-access-field">
+                <label htmlFor="email" className="my-access-label">
+                  Adresse email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="ton@email.com"
+                  autoComplete="email"
+                  required
+                  aria-invalid={hasError}
+                  aria-describedby={hasError ? "my-access-error" : undefined}
+                  className="my-access-input"
+                />
+              </div>
+
+              {hasError && (
+                <p id="my-access-error" className="my-access-error-text">
+                  Utilise l’email exact avec lequel tu as acheté ton offre.
+                </p>
+              )}
+
+              <button type="submit" className="my-access-button">
+                Accéder à mon offre
+              </button>
+            </form>
+          </div>
+
+          <aside className="my-access-side">
+            <div className="my-access-side-head">
+              <p className="my-access-side-kicker">Offres</p>
+              <p className="my-access-side-text">
+                Trois niveaux de lecture, selon la profondeur dont tu as besoin.
+              </p>
+            </div>
+
+            <div className="my-access-offers">
+              {offers.map((offer) => (
+                <article key={offer.name} className="my-access-offer-card">
+                  <div className="my-access-offer-meta">
+                    <h2 className="my-access-offer-name">{offer.name}</h2>
+                    <p className="my-access-offer-price">{offer.price}</p>
+                  </div>
+                  <Link href="/offre" className="my-access-offer-link">
+                    Voir l’offre
+                  </Link>
+                </article>
+              ))}
+            </div>
+
+            <Link href="/pour-qui" className="my-access-secondary-link">
+              Relance c’est quoi
+            </Link>
+          </aside>
         </div>
       </section>
     </main>
