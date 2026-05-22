@@ -1,10 +1,10 @@
 .page {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.03), transparent 28%),
-    #0a0a0a;
-  color: #f5f1ea;
+    radial-gradient(circle at top left, rgba(244, 238, 228, 0.06), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(244, 238, 228, 0.04), transparent 24%),
+    linear-gradient(180deg, #0d0d0d 0%, #12110f 100%);
+  color: #f4eee4;
   padding: 0 24px 120px;
   overflow: hidden;
 }
@@ -15,22 +15,24 @@
 .process,
 .offers,
 .cta {
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
 }
 
 .hero {
-  padding: 140px 0 90px;
+  padding: 144px 0 92px;
 }
 
 .kicker,
 .overline,
 .offerLabel {
+  margin: 0 0 18px;
   font-size: 12px;
+  line-height: 1;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(245, 241, 234, 0.56);
-  margin-bottom: 18px;
+  color: rgba(244, 238, 228, 0.62);
 }
 
 .heroTitle,
@@ -41,28 +43,30 @@
   font-weight: 500;
   line-height: 0.95;
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .heroTitle {
   max-width: 1100px;
-  font-size: clamp(3.5rem, 8vw, 8rem);
   margin: 0;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  color: #f7f2e9;
 }
 
 .lead {
-  margin-top: 28px;
+  margin: 28px 0 0;
   max-width: 760px;
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
   line-height: 1.8;
-  color: rgba(245, 241, 234, 0.78);
+  color: rgba(244, 238, 228, 0.82);
 }
 
 .split {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
   gap: 24px;
-  padding: 90px 0;
-  border-top: 1px solid rgba(245, 241, 234, 0.08);
+  padding: 92px 0;
+  border-top: 1px solid rgba(244, 238, 228, 0.1);
 }
 
 .reverse {
@@ -70,11 +74,12 @@
 }
 
 .number {
+  padding-top: 10px;
   font-size: 12px;
+  line-height: 1;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(245, 241, 234, 0.3);
-  padding-top: 10px;
+  color: rgba(244, 238, 228, 0.34);
 }
 
 .content {
@@ -82,8 +87,9 @@
 }
 
 .sectionTitle {
-  font-size: clamp(2.4rem, 5vw, 5.6rem);
   margin: 0 0 28px;
+  font-size: clamp(2.4rem, 5vw, 5.4rem);
+  color: #f7f2e9;
 }
 
 .grid {
@@ -96,24 +102,27 @@
 .card,
 .step,
 .offerCard {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(10px);
-  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(244, 238, 228, 0.1);
+  border-radius: 28px;
   padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(8px);
   transform: translateY(0);
   transition:
-    transform 0.45s ease,
-    border-color 0.45s ease,
-    background 0.45s ease;
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .card:hover,
 .step:hover,
 .offerCard:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  border-color: rgba(244, 238, 228, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
 }
 
 .card h3,
@@ -121,7 +130,8 @@
 .offerCard h3 {
   margin: 0 0 14px;
   font-size: 1.15rem;
-  color: #f5f1ea;
+  line-height: 1.3;
+  color: #f7f2e9;
 }
 
 .card p,
@@ -130,19 +140,20 @@
 .listItem p {
   margin: 0;
   line-height: 1.8;
-  color: rgba(245, 241, 234, 0.74);
+  color: rgba(244, 238, 228, 0.8);
 }
 
 .statement {
-  padding: 70px 0;
-  border-top: 1px solid rgba(245, 241, 234, 0.08);
-  border-bottom: 1px solid rgba(245, 241, 234, 0.08);
+  padding: 72px 0;
+  border-top: 1px solid rgba(244, 238, 228, 0.1);
+  border-bottom: 1px solid rgba(244, 238, 228, 0.1);
 }
 
 .statementText {
   max-width: 1000px;
-  font-size: clamp(2rem, 4vw, 4.8rem);
   margin: 0;
+  font-size: clamp(2rem, 4vw, 4.8rem);
+  color: #f6f0e6;
 }
 
 .list {
@@ -156,15 +167,16 @@
   grid-template-columns: 60px 1fr;
   gap: 18px;
   padding: 22px 0;
-  border-top: 1px solid rgba(245, 241, 234, 0.08);
+  border-top: 1px solid rgba(244, 238, 228, 0.1);
 }
 
 .listItem span,
 .step span {
   font-size: 12px;
+  line-height: 1;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(245, 241, 234, 0.35);
+  color: rgba(244, 238, 228, 0.42);
 }
 
 .process,
@@ -200,8 +212,8 @@
 }
 
 .featured {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(244, 238, 228, 0.18);
 }
 
 .cta {
@@ -209,9 +221,10 @@
 }
 
 .ctaText {
-  font-size: clamp(2.4rem, 5vw, 5.6rem);
-  margin: 0 0 36px;
   max-width: 980px;
+  margin: 0 0 36px;
+  font-size: clamp(2.4rem, 5vw, 5.4rem);
+  color: #f7f2e9;
 }
 
 .actions {
@@ -228,11 +241,13 @@
   padding: 0 22px;
   border-radius: 999px;
   text-decoration: none;
+  font-size: 15px;
   transition:
     transform 0.3s ease,
     background 0.3s ease,
     color 0.3s ease,
-    border-color 0.3s ease;
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .button:hover {
@@ -240,20 +255,30 @@
 }
 
 .primary {
-  background: #f5f1ea;
-  color: #0a0a0a;
+  background: #f4eee4;
+  color: #111111;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.primary:hover {
+  background: #fbf7f0;
 }
 
 .secondary {
-  border: 1px solid rgba(245, 241, 234, 0.16);
-  color: #f5f1ea;
   background: transparent;
+  color: #f4eee4;
+  border: 1px solid rgba(244, 238, 228, 0.18);
+}
+
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(244, 238, 228, 0.28);
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(36px);
-  animation: revealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateY(28px);
+  animation: revealUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .hero.reveal {
@@ -319,7 +344,7 @@
   }
 
   .hero {
-    padding: 110px 0 64px;
+    padding: 112px 0 64px;
   }
 
   .split,

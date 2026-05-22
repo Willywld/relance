@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 export default function PourQuiPage() {
   return (
-    <main className="pour-qui-page">
+    <main className={styles.page}>
       <section className={`${styles.hero} ${styles.reveal}`}>
         <div className={styles.kicker}>RELANCE</div>
         <h1 className={styles.heroTitle}>
