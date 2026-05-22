@@ -80,8 +80,8 @@ export default function ProjetsPage() {
                 <div className="project-meta">{project.category}</div>
                 <h2>{project.title}</h2>
                 <p>{project.text}</p>
-                <a href="/contact" className="project-link">
-                  Ouvrir une relance
+                <a href="/my-access" className="project-link">
+                  Je Relance
                 </a>
               </article>
             ))}
