@@ -7,15 +7,15 @@ type SearchParams = Promise<{ error?: string }>;
 const offers = [
   {
     name: "RELANCE +",
-    price: "95€",
+    price: "290€",
   },
   {
     name: "RELANCE ++",
-    price: "190€",
+    price: "690€",
   },
   {
     name: "RELANCE PLUS",
-    price: "290€",
+    price: "1290€",
   },
 ];
 
