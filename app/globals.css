@@ -5424,643 +5424,176 @@ canvas {
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
-:root {
-  --relance-bg: #0a0a0a;
-  --relance-text: #f5f1ea;
-  --relance-muted: rgba(245, 241, 234, 0.78);
-  --relance-soft: rgba(245, 241, 234, 0.56);
-  --relance-faint: rgba(245, 241, 234, 0.32);
-  --relance-line: rgba(245, 241, 234, 0.08);
-  --relance-border: rgba(255, 255, 255, 0.08);
-  --relance-border-strong: rgba(255, 255, 255, 0.16);
-  --relance-surface: rgba(255, 255, 255, 0.04);
-  --relance-surface-strong: rgba(255, 255, 255, 0.06);
-  --relance-radius: 28px;
-  --relance-radius-sm: 18px;
-  --relance-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
-}
-
-.page-shell {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.relance-page {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.03), transparent 26%),
-    var(--relance-bg);
-  color: var(--relance-text);
-}
-
-.section-label {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--relance-soft);
-  margin-bottom: 18px;
-}
-
-.relance-display {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-}
-
-.relance-text {
-  line-height: 1.8;
-  color: var(--relance-muted);
-}
-
-.relance-card {
-  background: var(--relance-surface);
-  border: 1px solid var(--relance-border);
-  backdrop-filter: blur(12px);
-  border-radius: var(--relance-radius);
-  box-shadow: var(--relance-shadow);
-}
-
-.relance-button-primary,
-.relance-button-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  padding: 0 22px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 16px;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    opacity 0.25s ease;
-}
-
-.relance-button-primary:hover,
-.relance-button-secondary:hover {
-  transform: translateY(-2px);
-}
-
-.relance-button-primary {
-  border: none;
-  background: var(--relance-text);
-  color: var(--relance-bg);
-}
-
-.relance-button-secondary {
-  background: transparent;
-  color: var(--relance-text);
-  border: 1px solid var(--relance-border-strong);
-}
-
-.relance-reveal {
-  opacity: 0;
-  transform: translateY(36px);
-  animation: relanceRevealUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes relanceRevealUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-@media (max-width: 640px) {
-  .page-shell {
-    padding: 0 18px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .relance-reveal,
-  .relance-button-primary,
-  .relance-button-secondary {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-  }
-}
-/* =========================================
-   RELANCE — shared premium layer
-   À coller à la fin de global.css
-========================================= */
-
-:root {
-  --relance-bg: #0a0a0a;
-  --relance-text: #f5f1ea;
-  --relance-muted: rgba(245, 241, 234, 0.78);
-  --relance-soft: rgba(245, 241, 234, 0.56);
-  --relance-faint: rgba(245, 241, 234, 0.32);
-  --relance-line: rgba(245, 241, 234, 0.08);
-  --relance-border: rgba(255, 255, 255, 0.08);
-  --relance-border-strong: rgba(255, 255, 255, 0.16);
-  --relance-surface: rgba(255, 255, 255, 0.04);
-  --relance-surface-strong: rgba(255, 255, 255, 0.06);
-  --relance-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
-  --relance-radius: 28px;
-  --relance-radius-sm: 18px;
-}
-
-.pour-qui-page,
 .my-access-page {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.03), transparent 26%),
-    var(--relance-bg);
-  color: var(--relance-text);
+  min-height: 100svh;
+  padding: clamp(96px, 12vw, 148px) 24px 72px;
+  background: #f7f4ee;
+  color: #171717;
 }
 
-.pour-qui-page .page-shell,
-.my-access-page .page-shell {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.pour-qui-page .section-label,
-.my-access-page .section-label {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--relance-soft);
-  margin-bottom: 18px;
-}
-
-.pour-qui-page .button-primary,
-.pour-qui-page .button-secondary,
-.my-access-page .button-primary,
-.my-access-page .button-secondary,
-.my-access-page .my-access-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 54px;
-  padding: 0 22px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 16px;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease,
-    opacity 0.25s ease;
-}
-
-.pour-qui-page .button-primary:hover,
-.pour-qui-page .button-secondary:hover,
-.my-access-page .button-primary:hover,
-.my-access-page .button-secondary:hover,
-.my-access-page .my-access-button:hover {
-  transform: translateY(-2px);
-}
-
-.pour-qui-page .button-primary,
-.my-access-page .button-primary,
-.my-access-page .my-access-button {
-  background: var(--relance-text);
-  color: var(--relance-bg);
-  border: none;
-}
-
-.pour-qui-page .button-secondary,
-.my-access-page .button-secondary {
-  background: transparent;
-  color: var(--relance-text);
-  border: 1px solid var(--relance-border-strong);
-}
-
-.pour-qui-page .pq-card,
-.pour-qui-page .pq-step,
-.pour-qui-page .pq-offer-card,
-.my-access-page .my-access-panel-inner {
-  background: var(--relance-surface);
-  border: 1px solid var(--relance-border);
-  backdrop-filter: blur(12px);
-  box-shadow: var(--relance-shadow);
-}
-
-.pour-qui-page .pq-card,
-.pour-qui-page .pq-step,
-.pour-qui-page .pq-offer-card {
-  transition:
-    transform 0.45s ease,
-    border-color 0.45s ease,
-    background 0.45s ease;
-}
-
-.pour-qui-page .pq-card:hover,
-.pour-qui-page .pq-step:hover,
-.pour-qui-page .pq-offer-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--relance-border-strong);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.pour-qui-page .pq-hero h1,
-.pour-qui-page .pq-content h2,
-.pour-qui-page .pq-section-head h2,
-.pour-qui-page .pq-statement p,
-.pour-qui-page .pq-cta-text,
-.my-access-page .my-access-title,
-.my-access-page .my-access-panel h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-}
-
-.pour-qui-page .pq-lead,
-.pour-qui-page .pq-card p,
-.pour-qui-page .pq-step p,
-.pour-qui-page .pq-offer-card p,
-.pour-qui-page .pq-list-item p,
-.my-access-page .my-access-text,
-.my-access-page .my-access-panel p {
-  line-height: 1.8;
-  color: var(--relance-muted);
-}
-
-/* =========================================
-   POUR QUI — version globale
-========================================= */
-
-.pour-qui-page {
-  padding: 0 24px 120px;
-  overflow: hidden;
-}
-
-.pour-qui-page .pq-hero,
-.pour-qui-page .pq-split,
-.pour-qui-page .pq-statement,
-.pour-qui-page .pq-process,
-.pour-qui-page .pq-offers,
-.pour-qui-page .pq-cta {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.pour-qui-page .pq-hero {
-  padding: 140px 0 90px;
-}
-
-.pour-qui-page .pq-kicker,
-.pour-qui-page .pq-overline,
-.pour-qui-page .pq-offer-label {
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--relance-soft);
-  margin-bottom: 18px;
-}
-
-.pour-qui-page .pq-hero h1 {
-  max-width: 1100px;
-  font-size: clamp(3.5rem, 8vw, 8rem);
-  margin: 0;
-}
-
-.pour-qui-page .pq-lead {
-  margin-top: 28px;
-  max-width: 760px;
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-}
-
-.pour-qui-page .pq-split {
-  display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
-  gap: 24px;
-  padding: 90px 0;
-  border-top: 1px solid var(--relance-line);
-}
-
-.pour-qui-page .pq-number {
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--relance-faint);
-  padding-top: 10px;
-}
-
-.pour-qui-page .pq-content h2,
-.pour-qui-page .pq-section-head h2 {
-  font-size: clamp(2.4rem, 5vw, 5.6rem);
-  margin: 0 0 28px;
-}
-
-.pour-qui-page .pq-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin-top: 42px;
-}
-
-.pour-qui-page .pq-card,
-.pour-qui-page .pq-step,
-.pour-qui-page .pq-offer-card {
-  border-radius: 26px;
-  padding: 28px;
-}
-
-.pour-qui-page .pq-card h3,
-.pour-qui-page .pq-step h3,
-.pour-qui-page .pq-offer-card h3 {
-  margin: 0 0 14px;
-  font-size: 1.15rem;
-  color: var(--relance-text);
-}
-
-.pour-qui-page .pq-statement {
-  padding: 70px 0;
-  border-top: 1px solid var(--relance-line);
-  border-bottom: 1px solid var(--relance-line);
-}
-
-.pour-qui-page .pq-statement p {
-  max-width: 1000px;
-  font-size: clamp(2rem, 4vw, 4.8rem);
-  margin: 0;
-}
-
-.pour-qui-page .pq-list {
-  display: grid;
-  gap: 18px;
-  margin-top: 42px;
-}
-
-.pour-qui-page .pq-list-item {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 18px;
-  padding: 22px 0;
-  border-top: 1px solid var(--relance-line);
-}
-
-.pour-qui-page .pq-list-item span,
-.pour-qui-page .pq-step span {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--relance-faint);
-}
-
-.pour-qui-page .pq-process,
-.pour-qui-page .pq-offers,
-.pour-qui-page .pq-cta {
-  padding: 100px 0 0;
-}
-
-.pour-qui-page .pq-section-head {
-  max-width: 880px;
-  margin-bottom: 40px;
-}
-
-.pour-qui-page .pq-process-grid,
-.pour-qui-page .pq-offers-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.pour-qui-page .pq-step {
-  min-height: 240px;
-}
-
-.pour-qui-page .pq-step span {
-  display: inline-block;
-  margin-bottom: 22px;
-}
-
-.pour-qui-page .pq-offer-card.featured {
-  background: var(--relance-surface-strong);
-  border-color: var(--relance-border-strong);
-}
-
-.pour-qui-page .pq-cta {
-  padding-bottom: 40px;
-}
-
-.pour-qui-page .pq-cta-text {
-  font-size: clamp(2.4rem, 5vw, 5.6rem);
-  margin: 0 0 36px;
-  max-width: 980px;
-}
-
-.pour-qui-page .pq-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-/* =========================================
-   MY ACCESS — version premium
-========================================= */
-
-.my-access-page .my-access-hero {
-  padding: 120px 0 100px;
-}
-
-.my-access-page .my-access-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(420px, 0.85fr);
-  gap: 28px;
-  align-items: start;
-}
-
-.my-access-page .my-access-title {
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  max-width: 8ch;
-  margin: 0;
-}
-
-.my-access-page .my-access-text {
-  margin-top: 24px;
-  max-width: 620px;
-  font-size: clamp(1rem, 1.35vw, 1.15rem);
-}
-
-.my-access-page .my-access-panel {
-  position: sticky;
-  top: 24px;
-}
-
-.my-access-page .my-access-panel-kicker {
-  display: inline-block;
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--relance-soft);
-  margin-bottom: 18px;
-}
-
-.my-access-page .my-access-panel-inner {
-  border-radius: 28px;
-  padding: 28px;
-}
-
-.my-access-page .my-access-panel h2 {
-  font-size: clamp(2rem, 3vw, 3.2rem);
-  margin: 0 0 14px;
-}
-
-.my-access-page .my-access-form {
-  display: grid;
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.my-access-page .my-access-input {
+.my-access-shell {
   width: 100%;
-  min-height: 54px;
-  border-radius: 999px;
-  border: 1px solid var(--relance-border-strong);
-  background: rgba(10, 10, 10, 0.5);
-  color: var(--relance-text);
-  padding: 0 18px;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 40px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(23, 23, 23, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.my-access-head {
+  margin-bottom: 28px;
+}
+
+.my-access-kicker {
+  margin: 0 0 10px;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(23, 23, 23, 0.58);
+}
+
+.my-access-title {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  color: #111111;
+  text-wrap: balance;
+}
+
+.my-access-intro {
+  margin: 16px 0 0;
+  max-width: 46ch;
   font-size: 16px;
-  outline: none;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  line-height: 1.7;
+  color: rgba(23, 23, 23, 0.72);
 }
 
-.my-access-page .my-access-input:focus {
-  border-color: rgba(245, 241, 234, 0.36);
-  transform: translateY(-1px);
-}
-
-.my-access-page .my-access-input::placeholder {
-  color: rgba(245, 241, 234, 0.4);
-}
-
-.my-access-page .my-access-error {
-  margin-top: 22px;
+.my-access-alert {
+  margin-bottom: 18px;
   padding: 14px 16px;
-  border-radius: 14px;
-  background: rgba(255, 80, 80, 0.08);
-  border: 1px solid rgba(255, 80, 80, 0.18);
-  color: #ffb4b4;
+  border-radius: 16px;
+  border: 1px solid rgba(180, 35, 24, 0.16);
+  background: rgba(180, 35, 24, 0.06);
+  color: #8f1f14;
+  font-size: 14px;
   line-height: 1.6;
 }
 
-.my-access-page .my-access-links {
+.my-access-form {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 18px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.my-access-page .my-access-links a {
-  color: rgba(245, 241, 234, 0.72);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(245, 241, 234, 0.18);
-  padding-bottom: 2px;
+.my-access-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.my-access-page .my-access-links a:hover {
-  color: var(--relance-text);
-  border-bottom-color: rgba(245, 241, 234, 0.48);
+.my-access-label {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(23, 23, 23, 0.78);
 }
 
-/* =========================================
-   Responsive
-========================================= */
+.my-access-input {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 16px;
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111111;
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
 
-@media (max-width: 980px) {
-  .pour-qui-page .pq-split,
-  .pour-qui-page .pq-grid,
-  .pour-qui-page .pq-process-grid,
-  .pour-qui-page .pq-offers-grid,
-  .my-access-page .my-access-layout {
-    grid-template-columns: 1fr;
-  }
+.my-access-input::placeholder {
+  color: rgba(23, 23, 23, 0.36);
+}
 
-  .pour-qui-page .pq-split {
-    gap: 14px;
-  }
+.my-access-input:focus {
+  border-color: rgba(23, 23, 23, 0.28);
+  box-shadow: 0 0 0 4px rgba(23, 23, 23, 0.06);
+  background: #ffffff;
+}
 
-  .pour-qui-page .pq-number {
-    padding-top: 0;
-  }
+.my-access-input[aria-invalid="true"] {
+  border-color: rgba(180, 35, 24, 0.28);
+  box-shadow: 0 0 0 4px rgba(180, 35, 24, 0.06);
+}
 
-  .pour-qui-page .pq-list-item {
-    grid-template-columns: 42px 1fr;
-  }
+.my-access-error-text {
+  margin: -4px 0 2px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #8f1f14;
+}
 
-  .my-access-page .my-access-panel {
-    position: static;
-  }
+.my-access-button {
+  min-height: 56px;
+  margin-top: 4px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 999px;
+  background: #111111;
+  color: #f8f4ee;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    opacity 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.my-access-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
+  box-shadow: 0 12px 24px rgba(17, 17, 17, 0.12);
+}
+
+.my-access-button:active {
+  transform: translateY(0);
+}
+
+.my-access-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(23, 23, 23, 0.08);
 }
 
 @media (max-width: 640px) {
-  .pour-qui-page .page-shell,
-  .my-access-page .page-shell {
-    padding: 0 18px;
+  .my-access-page {
+    padding: 88px 18px 48px;
   }
 
-  .pour-qui-page {
-    padding: 0 18px 88px;
-  }
-
-  .pour-qui-page .pq-hero {
-    padding: 110px 0 64px;
-  }
-
-  .pour-qui-page .pq-split,
-  .pour-qui-page .pq-process,
-  .pour-qui-page .pq-offers,
-  .pour-qui-page .pq-cta {
-    padding-top: 72px;
-  }
-
-  .pour-qui-page .pq-card,
-  .pour-qui-page .pq-step,
-  .pour-qui-page .pq-offer-card,
-  .my-access-page .my-access-panel-inner {
-    padding: 22px;
+  .my-access-shell {
+    padding: 24px 18px 20px;
     border-radius: 22px;
   }
 
-  .pour-qui-page .pq-actions {
-    flex-direction: column;
+  .my-access-title {
+    font-size: 34px;
   }
 
-  .pour-qui-page .pq-actions a,
-  .my-access-page .my-access-button {
-    width: 100%;
+  .my-access-intro {
+    font-size: 15px;
   }
 
-  .my-access-page .my-access-hero {
-    padding: 96px 0 80px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pour-qui-page .pq-card,
-  .pour-qui-page .pq-step,
-  .pour-qui-page .pq-offer-card,
-  .my-access-page .my-access-button {
-    transition: none !important;
-    transform: none !important;
+  .my-access-input,
+  .my-access-button {
+    min-height: 52px;
   }
 }
